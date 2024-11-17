@@ -1,6 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:farmer/constants/uidata.dart';
-import 'package:farmer/view/home/widgets/supplier_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,62 +7,134 @@ class NearBySuppliers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 194.h,
+      height: 220.h, // Increase height for a rectangular appearance
       padding: EdgeInsets.only(left: 12.w, top: 10.h),
-      child: CarouselSlider(
-        options: CarouselOptions(
-          height: 180.h, // Adjust the height of the carousel slider
-          autoPlay: true, // Optional: enable autoplay
-          enlargeCenterPage: true, // Optional: enlarge the center item
-          scrollDirection: Axis.horizontal,
-        ),
-        items: List.generate(supplier.length, (i) {
-          var supply = supplier[i];
-
-          // Display Supplier Widget for each image in the slider
-          return Builder(
-            builder: (BuildContext context) {
-              return SupplierWidget(
-                image: supply['imageUrl'],
-                logo: supply['logoUrl'],
-                title: supply['title'],
-                time: supply['time'],
-                rating: supply['ratingCount'],
-              );
-            },
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: supplier.length,
+        itemBuilder: (context, index) {
+          var supply = supplier[index];
+          return SupplierWidget(
+            image: supply['imageUrl'],
+            logo: supply['logoUrl'],
+            title: supply['title'],
+            time: supply['time'],
+            rating: supply['ratingCount'],
           );
-        }),
+        },
       ),
     );
   }
 }
 
+class SupplierWidget extends StatelessWidget {
+  final String image;
+  final String logo;
+  final String title;
+  final String time;
+  final String rating;
 
+  const SupplierWidget({
+    required this.image,
+    required this.logo,
+    required this.title,
+    required this.time,
+    required this.rating,
+    super.key,
+  });
 
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 250.w, // Increased width for a rectangular appearance
+      margin: EdgeInsets.symmetric(horizontal: 8.w),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12.r),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            blurRadius: 5,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12.r),
+            child: Image.asset(
+              image,
+              height: 120.h, // Adjust image height to maintain aspect ratio
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  time,
+                  style: TextStyle(fontSize: 12.sp, color: Colors.grey),
+                ),
+                SizedBox(height: 5.h),
+                Row(
+                  children: [
+                    Icon(Icons.star, size: 14.sp, color: Colors.orange),
+                    SizedBox(width: 5.w),
+                    Text(
+                      rating,
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
-
-
-// import 'package:farmer/constants/uidata.dart';
-// import 'package:farmer/view/home/widgets/supplier_widget.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-//
-// class NearBySuppliers extends StatelessWidget{
-//   const NearBySuppliers ({super.key});
-//   // var supply;
-//   @override
-//   Widget build(BuildContext context) {
-//     // TODO: implement build
-//     return Container(
-//       height: 194.h,
-//       padding: EdgeInsets.only(left: 12.w,top: 10.h),
-//       child: ListView(
-//         scrollDirection: Axis.horizontal,
-//         children: List.generate(supplier.length, (i){
-//            var supply = supplier[i];
-//           return SupplierWidget(image: supply['imageUrl'],logo: supply['logoUrl'], title: supply['title'], time:supply ['time'], rating: supply['ratingCount'],);
-//         }),
-//       ),
-//     );
-//   }
-// }
+// Example supplier data
+List<dynamic> supplier = [
+  {
+    "title": "Lapisara Eatery",
+    "time": "6:00am - 9:00pm",
+    "imageUrl": "assets/supplier/bhushan.jpg",
+    "logoUrl": "https://example.com/logo1.webp",
+    "ratingCount": "6765",
+  },
+  {
+    "title": "Burger King",
+    "time": "6:00am - 9:00pm",
+    "imageUrl": "assets/supplier/prajakta.jpg",
+    "logoUrl": "https://example.com/logo2.webp",
+    "ratingCount": "3278",
+  },
+  {
+    "title": "La Foods",
+    "time": "6:00am - 9:00pm",
+    "imageUrl": "assets/supplier/shradha.jpg",
+    "logoUrl": "https://example.com/logo3.webp",
+    "ratingCount": "5666",
+  },
+  {
+    "title": "Italian Restaurant",
+    "time": "6:00am - 9:00pm",
+    "imageUrl": "assets/supplier/vaibhav.jpg",
+    "logoUrl": "https://example.com/logo4.webp",
+    "ratingCount": "3454",
+  }
+];
