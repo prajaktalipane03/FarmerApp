@@ -98,7 +98,7 @@ String getTimeOfDay() {
 
   if (hour >= 6 && hour < 12) {
     return ' ️☀️ '; // Morning
-  } else if (hour >= 12 && hour < 16) {
+  } else if (hour >= 12 && hour < 18) {
     return ' 🌥️ '; // Afternoon
   } else {
     return ' 🌙 '; // Night
