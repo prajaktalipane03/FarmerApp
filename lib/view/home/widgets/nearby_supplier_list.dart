@@ -1,3 +1,4 @@
+import 'package:farmer/constants/uidata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -108,33 +109,4 @@ class SupplierWidget extends StatelessWidget {
 }
 
 // Example supplier data
-List<dynamic> supplier = [
-  {
-    "title": "Lapisara Eatery",
-    "time": "6:00am - 9:00pm",
-    "imageUrl": "assets/supplier/bhushan.jpg",
-    "logoUrl": "https://example.com/logo1.webp",
-    "ratingCount": "6765",
-  },
-  {
-    "title": "Burger King",
-    "time": "6:00am - 9:00pm",
-    "imageUrl": "assets/supplier/prajakta.jpg",
-    "logoUrl": "https://example.com/logo2.webp",
-    "ratingCount": "3278",
-  },
-  {
-    "title": "La Foods",
-    "time": "6:00am - 9:00pm",
-    "imageUrl": "assets/supplier/shradha.jpg",
-    "logoUrl": "https://example.com/logo3.webp",
-    "ratingCount": "5666",
-  },
-  {
-    "title": "Italian Restaurant",
-    "time": "6:00am - 9:00pm",
-    "imageUrl": "assets/supplier/vaibhav.jpg",
-    "logoUrl": "https://example.com/logo4.webp",
-    "ratingCount": "3454",
-  }
-];
+

@@ -16,7 +16,7 @@ List<Widget>pageList = [
   const HomePage(),
   const SearchPage(),
   const CartPage(),
-  ProfileApp(),
+  const ProfilePage(),
 ];
   @override
   Widget build(BuildContext context) {

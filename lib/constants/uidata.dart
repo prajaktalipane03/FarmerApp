@@ -25,7 +25,7 @@ List<dynamic> categories = [
 List<dynamic> supplier = [
   {
     "_id": "6530ebbcc9e72013e5b65933",
-    "title": "Lapisara Eatery",
+    "title": "Prajakta Lipane",
     "time": "6:00am - 9:00pm",
     "imageUrl": "assets/supplier/bhushan.jpg",  // Image URL for slider
     "owner": "fdfsdfsdfs",
@@ -45,7 +45,7 @@ List<dynamic> supplier = [
   },
   {
     "_id": "6530ea6bc9e72013e5b6592d",
-    "title": "Burger King",
+    "title": "Sharddha Pawar",
     "time": "6:00am - 9:00pm",
     "imageUrl": "assets/supplier/prajakta.jpg",  // Image URL for slider
     "owner": "sjgdsjgfjshhjs",
@@ -65,7 +65,7 @@ List<dynamic> supplier = [
   },
   {
     "_id": "6530eb66c9e72013e5b65931",
-    "title": "La Foods",
+    "title": "Vaibhav Navghare",
     "time": "6:00am - 9:00pm",
     "imageUrl": "assets/supplier/shradha.jpg",  // Image URL for slider
     "owner": "fgdgdfgd",
@@ -85,7 +85,7 @@ List<dynamic> supplier = [
   },
   {
     "_id": "6530eb23c9e72013e5b6592f",
-    "title": "Italian Restaurant",
+    "title": "Avinash Tekale",
     "time": "6:00am - 9:00pm",
     "imageUrl": "assets/supplier/vaibhav.jpg",  // Image URL for slider
     "owner": "sjgdsjgfjshhjs",
@@ -105,34 +105,55 @@ List<dynamic> supplier = [
   }
 ];
 
-List<Map<String, dynamic>> products = [
+List < dynamic> products = [
   {
-    "_id": "65316968f94c6496dc84f3c1",
-    "title": "Tiramisu",
-    "foodTags": ["Italian", "Dessert", "Coffee", "Mascarpone", "Cocoa"],
-    "foodType": ["Dessert"],
-    "code": "41007428",
-    "isAvailable": true,
-    "restaurant": "6530ea6bc9e72013e5b6592d",
-    "rating": 4.9,
-    "ratingCount": "420",
-    "description":
-    "A classic Italian dessert made of layers of coffee-soaked ladyfingers and creamy mascarpone, topped with cocoa.",
-    "price": 7.99,
-    "additives": [
-      {"id": 1, "title": "Ladyfingers", "price": "1.00"},
-      {"id": 2, "title": "Coffee", "price": "1.50"},
-      {"id": 3, "title": "Mascarpone Cheese", "price": "2.50"},
-      {"id": 4, "title": "Cocoa", "price": "0.50"},
-      {"id": 5, "title": "Sugar", "price": "0.50"}
-    ],
-    "imageUrl":
-    "https://d326fntlu7tb1e.cloudfront.net/uploads/5c2a9ca8-eb07-400b-b8a6-2acfab2a9ee2-image001.webp",
-    "__v": 0,
-    "category": "6531209dbbe4998e90af3fef",
-    "time": "35 min"
+    "title": "Tomato",
+    "time": "Bhushan Sapkale",
+    "imageUrl": "assets/items/tomato.jpg",
+    "price": "50",
+    "ratingCount": "6765",
+    "Deliverytime": "25 min",
   },
-  // Other product data here...
+  {
+    "title": "Carrot",
+    "time": "Abhishek Adhude",
+    "imageUrl": "assets/items/carrot.jpg",
+    "price": "50",
+    "ratingCount": "3278",
+    "Deliverytime": "15 min",
+  },
+  {
+    "title": "Garlic",
+    "time": "Vaibhav Navghare",
+    "imageUrl": "assets/items/garlic.jpg",
+    "price": "30",
+    "ratingCount": "5666",
+    "Deliverytime": "20 min",
+  },
+  {
+    "title": "Apple",
+    "time": "Avinsh Tekale",
+    "imageUrl": "assets/items/apple.jpg",
+    "price": "100",
+    "ratingCount": "3454",
+    "Deliverytime": "10 min",
+  },
+  {
+    "title": "Mango",
+    "time": "Avinsh Tekale",
+    "imageUrl": "assets/items/mango.jpg",
+    "price": "100",
+    "ratingCount": "3454",
+    "Deliverytime": "10 min",
+  },
+  {
+    "title": "Amonds",
+    "time": "Avinsh Tekale",
+    "imageUrl": "assets/items/amond.jpg",
+    "price": "100",
+    "ratingCount": "3454",
+    "Deliverytime": "10 min",
+  }
 ];
 
 const cart = [

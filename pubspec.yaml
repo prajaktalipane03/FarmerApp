@@ -40,6 +40,7 @@ dependencies:
   provider: ^6.1.2
   get: ^4.6.6
   lottie: ^2.3.2
+  flutter_rating_bar: ^4.0.1
 #  carousel_slider: ^4.0.0
 
 dev_dependencies:
@@ -100,4 +101,11 @@ flutter:
     - assets/icons/
     - assets/foodly/
     - assets/supplier/
+    - assets/items/
+    - assets/icons/rating.png
+    - assets/icons/farmer_supplier.png
+    - assets/icons/admin.png
+    - assets/icons/motorbike.png
+    - assets/anime/delivery.json
+
 
