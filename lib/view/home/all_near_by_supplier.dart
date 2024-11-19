@@ -1,3 +1,4 @@
+import 'package:farmer/constants/uidata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../common/app_style.dart';
@@ -5,52 +6,6 @@ import '../../common/reusable_text.dart';
 import '../../constants/constants.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-List<dynamic> supplier = [
-  {
-    "_id": "6530ebbcc9e72013e5b65933",
-    "title": "Prajakta Lipane",
-    "time": "6:00am - 9:00pm",
-    "imageUrl": "assets/supplier/bhushan.jpg", // Image URL for slider
-    "rating": 5,
-    "ratingCount": "6765",
-    "coords": {
-      "address": "Shindhurwadha Farm, Ajeet Seed,Chh Sambhaji Nagar",
-    }
-  },
-  {
-    "_id": "6530ea6bc9e72013e5b6592d",
-    "title": "Sharddha Pawar",
-    "time": "6:00am - 9:00pm",
-    "imageUrl": "assets/supplier/prajakta.jpg", // Image URL for slider
-    "rating": 5,
-    "ratingCount": "3278",
-    "coords": {
-      "address": "Pimpri Raja,Chh Sambhaji Nagar",
-    }
-  },
-  {
-    "_id": "6530eb66c9e72013e5b65931",
-    "title": "Chaitanya Sapkale",
-    "time": "6:00am - 9:00pm",
-    "imageUrl": "assets/supplier/shradha.jpg", // Image URL for slider
-    "rating": 5,
-    "ratingCount": "5666",
-    "coords": {
-      "address": "Kanchanwadi,Chh Sanbhaji Nagar",
-    }
-  },
-  {
-    "_id": "6530eb23c9e72013e5b6592f",
-    "title": "Italian Restaurant",
-    "time": "6:00am - 9:00pm",
-    "imageUrl": "assets/supplier/vaibhav.jpg", // Image URL for slider
-    "rating": 5,
-    "ratingCount": "3278",
-    "coords": {
-      "address": "Pandharpur,Chh Sambhaji Nagar",
-    }
-  }
-];
 
 class AllNearBySupplier extends StatelessWidget {
   const AllNearBySupplier({super.key});
