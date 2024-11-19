@@ -70,32 +70,7 @@ class CartPage extends StatelessWidget {
                   ),
                 ),
               ),
-              BottomNavigationBar(
-                type: BottomNavigationBarType.fixed,
-                backgroundColor: kPrimary,
-                selectedItemColor: Colors.white,
-                unselectedItemColor: Colors.white70,
-                showSelectedLabels: false,
-                showUnselectedLabels: false,
-                items: const [
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    label: 'Home',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.search),
-                    label: 'Search',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.notifications),
-                    label: 'Notifications',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
-                    label: 'Profile',
-                  ),
-                ],
-              ),
+
             ],
           );
         },

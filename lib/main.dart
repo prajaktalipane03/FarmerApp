@@ -1,9 +1,11 @@
 import 'package:farmer/constants/constants.dart';
 import 'package:farmer/login/authapp.dart';
+import 'package:farmer/view/cart/cart_provider.dart';
 import 'package:farmer/view/entrypoint.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 Widget defaultHome = MainScreen();
 
@@ -11,6 +13,12 @@ void main() {
   // runApp(const MyApp());
 
   runApp(AuthApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => CartProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -26,7 +34,7 @@ class MyApp extends StatelessWidget {
       // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (contex , child) {
         return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
+
           title: 'Agri Mart',
           // You can use the library anywhere in the app even in theme
           theme: ThemeData(
