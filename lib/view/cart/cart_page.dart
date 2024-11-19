@@ -1,7 +1,7 @@
-import 'package:farmer/view/cart/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:farmer/constants/constants.dart'; // Import the constants
+import 'package:farmer/constants/constants.dart';
+import 'package:farmer/view/cart/cart_provider.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -20,57 +20,69 @@ class CartPage extends StatelessWidget {
           if (cartProvider.cartItems.isEmpty) {
             return const Center(child: Text('No items in the cart'));
           }
-          return ListView.builder(
-            itemCount: cartProvider.cartItems.length,
-            itemBuilder: (context, index) {
-              final cartItem = cartProvider.cartItems[index];
-              return Card(
-                margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                child: ListTile(
-                  leading: Image.asset(cartItem.image, width: 50, height: 50, fit: BoxFit.cover),
-                  title: Text(cartItem.title),
-                  subtitle: Text('₹ ${cartItem.price} x ${cartItem.quantity}'),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.delete, color: Colors.red),
-                    onPressed: () {
-                      cartProvider.removeFromCart(cartItem); // Remove item from cart
-                    },
-                  ),
-                ),
-              );
-            },
-          );
-        },
-      ),
-      bottomNavigationBar: Consumer<CartProvider>(
-        builder: (context, cartProvider, child) {
-          double totalAmount = 0.0;
-          for (var item in cartProvider.cartItems) {
-            totalAmount += double.parse(item.price) * item.quantity;
-          }
-
           return Column(
-            mainAxisSize: MainAxisSize.min,
             children: [
+              Expanded(
+                child: ListView.builder(
+                  itemCount: cartProvider.cartItems.length,
+                  itemBuilder: (context, index) {
+                    final cartItem = cartProvider.cartItems[index];
+                    return Card(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 8.0, horizontal: 16.0),
+                      child: ListTile(
+                        leading: Image.asset(
+                          cartItem.image,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
+                        ),
+                        title: Text(cartItem.title),
+                        subtitle: Text('₹ ${cartItem.price} x ${cartItem.quantity}'),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete, color: Colors.red),
+                          onPressed: () {
+                            cartProvider.removeFromCart(cartItem);
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              // Expose the checkout button at the bottom
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: kPrimary,
                     minimumSize: const Size(double.infinity, 50),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
                   ),
                   onPressed: () {
-                    // Handle checkout
+                    double totalAmount = 0.0;
+                    for (var item in cartProvider.cartItems) {
+                      totalAmount += double.parse(item.price) * item.quantity;
+                    }
                     debugPrint('Proceed to checkout with total: ₹$totalAmount');
                   },
-                  child: Text(
-                    'Checkout (₹${totalAmount.toStringAsFixed(2)})',
-                    style: const TextStyle(fontSize: 16, color: Colors.black),
+                  child: Consumer<CartProvider>(
+                    builder: (context, cartProvider, _) {
+                      double totalAmount = 0.0;
+                      for (var item in cartProvider.cartItems) {
+                        totalAmount +=
+                            double.parse(item.price) * item.quantity;
+                      }
+                      return Text(
+                        'Checkout (₹${totalAmount.toStringAsFixed(2)})',
+                        style: const TextStyle(fontSize: 16, color: Colors.black),
+                      );
+                    },
                   ),
                 ),
               ),
-
             ],
           );
         },
